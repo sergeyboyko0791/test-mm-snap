@@ -17,7 +17,7 @@ mm-snap build
 # Go to the project root
 cd ../../
 yarn install
-yarn serve
+yarn start
 ```
 
 ## Visit `http://localhost:8000/`

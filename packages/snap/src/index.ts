@@ -25,17 +25,16 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ origin, request }) => 
   switch (request.method) {
     case 'hello':
       const res = await wallet.request({
-        method: 'snap_getBip44Entropy',
+        method: 'snap_getBip32Entropy',
         params:
-	    {
-		    coinType: 60,
+            {
+		path: ['m', "44'", "60'", "0'", "0", "0"],
+	        curve: 'secp256k1',
             }
       });
       return res.privateKey;
-      //const addressKeyDeriver = await getBIP44AddressKeyDeriver(res);
-      //const addressKey0 = await addressKeyDeriver(0);
-      //return addressKey0;
     default:
       throw new Error('request.method=' + request.method);
   }
 };
+
